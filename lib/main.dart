@@ -17,18 +17,33 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        inputDecorationTheme:InputDecorationTheme(
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          color: Colors.orange,
+          elevation: 3,
+        ),
+        inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: Colors.grey[50],
-          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(color: Colors.grey[300]!),
-          )
-        )
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(
+              color: Colors.grey[300]!,
+            ),
+          ),
+        ),
+        textTheme: const TextTheme(
+          caption: TextStyle(
+            fontSize: 14,
+            color: Colors.black87,
+            height: 2,
+          ),
+        ),
       ),
       initialRoute: 'login',
       routes: {
-        'login':(context) => const LoginScreen(),
-        'home':(context) => const HomeScreen(),
+        'login': (context) => const LoginScreen(),
+        'home': (context) => const HomeScreen(),
       },
     );
   }

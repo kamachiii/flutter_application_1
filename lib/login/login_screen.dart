@@ -22,35 +22,46 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Center(
-                  child: Icon(Icons.rocket_launch, size:100, color:Colors.blue),
+                  child:
+                      Icon(Icons.rocket_launch, size: 100, color: Colors.blue),
                 ),
                 const SizedBox(
                   height: 20,
-                  ),
-                const Center(child: Text("News Apps",
-                style:
-                  TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                ),
+                Center(
+                  child: Text("News Apps",
+                      style:
+                          Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                color: Colors.black,
+                              )),
                 ),
                 const SizedBox(
                   height: 30,
-                  ),
-                const Text("Email"),
+                ),
+                Text(
+                  "Email",
+                  style: Theme.of(context).textTheme.caption,
+                ),
                 const TextField(
-                  decoration:
-                    InputDecoration(hintText: "Input your email...")),
+                    decoration:
+                        InputDecoration(hintText: "Input your email...")),
                 const SizedBox(
-                  height: 15,
-                  ),
-                const Text("Password"),
+                  height: 20,
+                ),
+                Text(
+                  "Password",
+                  style: Theme.of(context).textTheme.caption,
+                ),
                 const TextField(
-                  obscureText: true,
-                  decoration:
-                    InputDecoration(hintText: "Input your password...")),
+                    obscureText: true,
+                    decoration:
+                        InputDecoration(hintText: "Input your password...")),
                 const SizedBox(
                   height: 25,
-                  ),
-                ElevatedButton(onPressed: () => redirectToHome(), child: const Text("Submit"))
-
+                ),
+                ElevatedButton(
+                    onPressed: () => redirectToHome(),
+                    child: const Text("Submit"))
               ],
             ),
           ),
@@ -60,6 +71,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void redirectToHome() {
+    const snackBar = SnackBar(content: Text("Login Berhasil"));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
     Navigator.of(context).pushNamedAndRemoveUntil("home", (route) => false);
   }
 }
